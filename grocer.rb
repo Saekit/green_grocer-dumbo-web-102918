@@ -36,7 +36,12 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart) #discount true clearance items by 20%
-
+  cart.each do |product, value|
+    if value[:clearance] == true
+      value[:price] = (value[:price] * 0.8).round(2)
+    end
+  end
+  cart
 end
 
 def checkout(cart, coupons)
