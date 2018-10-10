@@ -23,12 +23,12 @@ def apply_coupons(cart, coupons)
         :count => 1
         }
       }
-      if new_cart["#{product} W/COUPON"].nil?
-        new_cart.merge!(temp)
+      if new_cart["#{product} W/COUPON"].nil? #if no coupon in cart
+        new_cart.merge!(temp) #put it in
       else
-        new_cart["#{product} W/COUPON"][:count] += 1
+        new_cart["#{product} W/COUPON"][:count] += 1 #else increase the count
       end
-      new_cart[product][:count] -= coupon[:num]
+      new_cart[product][:count] -= coupon[:num] #subtract the product's count from the coupon num
     end
   end
   new_cart
