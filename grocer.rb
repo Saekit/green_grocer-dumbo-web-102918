@@ -35,8 +35,8 @@ def apply_coupons(cart, coupons)
   new_cart
 end
 
-def apply_clearance(cart)
-  # code here
+def apply_clearance(cart) #discount true clearance items by 20%
+
 end
 
 def checkout(cart, coupons)
