@@ -15,9 +15,9 @@ end
 def apply_coupons(cart, coupons)
   new_cart = cart
   coupons.each do |coupon|
-    product = coupon[:item]
+    product = coupon[:item] #name of item on coupon
     if !new_cart[product].nil? && new_cart[product][:count] >= coupon[:num]
-      #if cart is full and product matches coupon, make a new hash 
+      #if cart is full and product matches coupon, make a new hash
       with_coupon = {"#{product} W/COUPON" => {
         :price => coupon[:cost],
         :clearance => new_cart[product][:clearance],
