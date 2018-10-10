@@ -17,7 +17,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     product = coupon[:item]
     if !new_cart[product].nil? && new_cart[product][:count] >= coupon[:num]
-      temp = {"#{item} W/COUPON" => {
+      temp = {"#{product} W/COUPON" => {
         :price => coupon[:cost],
         :clearance => new_cart[product][:clearance],
         :count => 1
