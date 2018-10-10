@@ -1,8 +1,11 @@
 def consolidate_cart(cart)
+  new_cart_hash = {}
   cart.each do |item|
     item.each do |product, value| # value.merge!(new key-val)
-      count = 0
-      if product
+      new_cart_hash[product] = {value}
+    end
+  end
+  new_cart_hash
 end
 
 def apply_coupons(cart, coupons)
