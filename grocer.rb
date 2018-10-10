@@ -17,14 +17,15 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     product = coupon[:item]
     if !new_cart[product].nil? && new_cart[product][:count] >= coupon[:num]
-      temp = {"#{product} W/COUPON" => {
+      #if cart is full and product matches coupon, make a new hash 
+      with_coupon = {"#{product} W/COUPON" => {
         :price => coupon[:cost],
         :clearance => new_cart[product][:clearance],
         :count => 1
         }
       }
       if new_cart["#{product} W/COUPON"].nil? #if no coupon in cart
-        new_cart.merge!(temp) #put it in
+        new_cart.merge!(with_coupon) #put it in
       else
         new_cart["#{product} W/COUPON"][:count] += 1 #else increase the count
       end
