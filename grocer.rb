@@ -1,8 +1,8 @@
 def consolidate_cart(cart)
   cart.each do |item|
-    item.each do |product, value|
+    item.each do |product, value| # value.merge!(new key-val)
       count = 0
-      if product 
+      if product
 end
 
 def apply_coupons(cart, coupons)
