@@ -23,7 +23,15 @@ def apply_coupons(cart, coupons)
         :count => 1
         }
       }
-
+      if new_cart["#{product} W/COUPON"].nil?
+        new_cart.merge!(temp)
+      else
+        new_cart["#{product} W/COUPON"][:count] += 1
+      end
+      new_cart[product][:count] -= coupon[:num]
+    end
+  end
+  new_cart
 end
 
 def apply_clearance(cart)
