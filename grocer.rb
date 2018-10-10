@@ -2,7 +2,11 @@ def consolidate_cart(cart)
   new_cart_hash = {}
   cart.each do |item|
     item.each do |product, value| # value.merge!(new key-val)
-      new_cart_hash[product] = {value}
+      if new_cart_hash[product].nil?
+        new_cart_hash[product] = value.merge({:count => 1})
+      else
+        new_cart_hash[product][:count] += 1
+      end
     end
   end
   new_cart_hash
